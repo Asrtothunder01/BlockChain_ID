@@ -3,7 +3,9 @@ from account.models import User
 # Create your models here.
 
 class Question(models.Model):
+	id = models.UUIDField(unique = True, editable = False, primary_key = True, default = uuid.uuid4)
 	user = models.ForeignKey(User,on_delete = models.CASCADE)
+	
 	academic_session = models.IntegerField(default = 0)
 	question_text = models.TextField(blank = True)
 	updated_at = models.DateTimeField(auto_now = True)

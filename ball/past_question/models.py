@@ -8,7 +8,7 @@ from django.core.validators import FileValidator
 
 
 class BaseModel(models.Model):
-    id = models.UUIDField(Unique = True, default = uuid.uuid4, editable = False, primary_key = True) 
+    id = models.UUIDField(unique = True, default = uuid.uuid4, editable = False, primary_key = True) 
     
     created_at = models.DateTimeField(auto_now_add = True)
     

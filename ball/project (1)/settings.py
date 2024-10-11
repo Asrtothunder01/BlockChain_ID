@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'drf_spectacular',
     'department',
     'course',
+    'past_question',
     'question',
     'discussion',
     'upvote',

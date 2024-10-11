@@ -12,7 +12,8 @@ from rest_framework.response import Response
 
 from rest_framework import status
 
-from drf_spectacular.utils import extend_schema, 
+from drf_spectacular.utils import extend_schema
+ 
 from drf_spectacular.types import OpenApiTypes
 
 
@@ -91,7 +92,7 @@ class ExamCreateView(CreateAPIView):
                                 
  # QuestionPaper View 
  
- ''' QUESTIONPAPERVIEW '''
+''' QUESTIONPAPERVIEW '''
  
  
 @extend_schema(
