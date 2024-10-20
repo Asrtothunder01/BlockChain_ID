@@ -40,15 +40,15 @@ class Verify (BaseModel):
     
     )
     
-    user = model.ForeignKey(User,on_delete = models.CASCADE)
+    user = models.ForeignKey(User,on_delete = models.CASCADE)
     
-    Verifier = models.ForeignKey(Verifier,on_delete = models.CASCADE)
+    verifier = models.ForeignKey(Verifier,on_delete = models.CASCADE)
     
     status = models.CharField(max_length = 25, choices = VERIFY_STATUS, default = 'Pending')
     
     blockchain_tx_hash = models.CharField(max_length = 25)
     
-    attempted_at = Models.DateTimeField(auto_now_add = True)
+    attempted_at = models.DateTimeField(auto_now_add = True)
     
     verified_at = models.DateTimeField(auto_now_add = True)
     
