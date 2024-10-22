@@ -17,20 +17,31 @@ class BaseModel (models.Model):
    
 class Verifier(BaseModel):
     
-    TX_TYPE = (
-    ('Register','Register'),
-    ('Verify','Verify'),    
-    ('Failed','Failed'),
+    name = models.CharField(max_length = 50)
     
-    )
+    blockchain_address = models.CharField(max_length = 50)
+    
+    verified_at = models.DateTimeField()
+    
+    
+class verify(BaseModel):   
+    
+    STATUS = (
+    ('Pending','Pending'),
+    ('Registered','Registered')
+    ('Verified','Verified'),    
+    ('Failed','Failed'),
+)
     
     user = models.ForeignKey(User,on_delete = models.CASCADE)
     
-    tx_type = models.CharField(max_length = 25, choices = TX_TYPE, default = 'Pending')
+    verifier = models.ForeignKey(Verifier,on_delete = models.CASCADE)
     
-    blockchain_tx_hash = models.CharField(,max_length = 50)
+    status = models.CharField(max_length = 50, choices = STATUS, default = 'Pending')
     
-    created_at = models.DateTimeField(auto_now_add = True)
+    attempted_at = models.DateTimeField(auto_now = True)
+    
+    verified_at = models.DateTimeField(auto_now = True)
     
     def __str__(self):
         return self.user
