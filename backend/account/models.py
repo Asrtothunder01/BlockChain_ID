@@ -29,6 +29,8 @@ class User(BaseModel):
     
     blockchain_address = models.CharField(max_length = 50)
     
+    email = models.EmailField(unique = True)
+    
     dob = models.PositiveIntegerField(auto_now_add = True)
     
     def __str__(self):
